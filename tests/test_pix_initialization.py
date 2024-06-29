@@ -17,3 +17,8 @@ def test_pix_initialization(red, green, blue, expected_error):
         assert pixel.red == red
         assert pixel.green == green
         assert pixel.blue == blue
+
+
+if __name__ == "__main__":
+    pytest.main()
+    

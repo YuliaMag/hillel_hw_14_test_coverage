@@ -2,22 +2,16 @@ import pytest
 from staff import pxl
 
 
-def test_multiplication_red():
-    pxl.pixel1 = pxl.Pixel(100, 150, 200)
-
-    result = pxl.pixel1.red * 2
-    assert result == 200
-
-
-def test_multiplication_green():
-    pxl.pixel2 = pxl.Pixel(100, 150, 200)
-
-    result = pxl.pixel2.green * 2
-    assert result == 300
+@pytest.mark.parametrize("pixel1, pixel2, expected_red, expected_green, expected_blue", [
+    (pxl.Pixel(50, 100, 150), 1.5, 75, 150, 225),
+    (pxl.Pixel(25, 50, 75), 3, 75, 150, 225),
+    ], ids=["Integer values", "Float values"])
+def test_multiplication(pixel1, pixel2, expected_red, expected_green, expected_blue):
+    result = pixel1 * pixel2
+    assert result.red == expected_red
+    assert result.green == expected_green
+    assert result.blue == expected_blue
 
 
-def test_multiplication_blue():
-    pxl.pixel3 = pxl.Pixel(100, 150, 200)
-
-    result = pxl.pixel3.blue * 2
-    assert result == 400
+if __name__ == "__main__":
+    pytest.main()

@@ -1,5 +1,4 @@
 import pytest
-
 from staff import pxl
 
 
@@ -14,11 +13,5 @@ def test_repr_method():
     assert repr(pixel2) == "Pixel(255, 128, 64)"
 
 
-
-
-# @pytest.mark.skip(reason="failing for unknown reason")
-# def test_string_representation():
-#     pxl.Pixel = pxl.Pixel(100, 150, 200)
-#
-#     assert str(pxl.Pixel) == "pxl.Pixel(100, 150, 200)"
-#     assert repr(pxl.Pixel) == "pxl.Pixel(100, 150, 200)"
+if __name__ == "__main__":
+    pytest.main()

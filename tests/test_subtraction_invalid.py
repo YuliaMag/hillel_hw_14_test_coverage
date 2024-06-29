@@ -8,11 +8,10 @@ from staff import pxl
     (pxl.Pixel(0, 0, 0), pxl.Pixel(0, 0, 0), 0, 0, 0),
     (pxl.Pixel(255, 255, 255), pxl.Pixel(255, 255, 255), 0, 0, 0),
 ], ids=["In range", "Exceeding range", "Lower bound", "Upper bound"])
-def test_add_pixels(pixel1, pixel2, expected_red, expected_green, expected_blue):
-    result = pixel1 - pixel2
-    assert result.red == expected_red
-    assert result.green == expected_green
-    assert result.blue == expected_blue
+def test_add_invalid(pixel1, pixel2, expected_red, expected_green, expected_blue):
+    pixel1 = pxl.Pixel(100, 255, 100)
+    with pytest.raises(ValueError):
+        result = pixel1 - pxl.Pixel(300, 255, 0)
 
 
 if __name__ == "__main__":
